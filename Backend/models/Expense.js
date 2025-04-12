@@ -8,3 +8,4 @@ const expenseSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Expense', expenseSchema);
+
