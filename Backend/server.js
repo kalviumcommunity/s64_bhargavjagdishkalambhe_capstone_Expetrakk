@@ -17,6 +17,10 @@ mongoose
   })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log(err));
+  
+  const userRoutes = require('./routes/userRoutes');
+  app.use('/api/users', userRoutes);
+  
 
 // Routes
 const expenseRoutes = require('./routes/expenseRoutes');
