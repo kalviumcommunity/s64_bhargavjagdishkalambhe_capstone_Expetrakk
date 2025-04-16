@@ -48,4 +48,24 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+router.post('/', async (req, res) => {
+  try {
+    const { userId, category, amount, date, notes } = req.body;
+
+    const newExpense = new Expense({
+      user: userId,
+      category,
+      amount,
+      date,
+      notes
+    });
+
+    await newExpense.save();
+    res.status(201).json(newExpense);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 module.exports = router;
