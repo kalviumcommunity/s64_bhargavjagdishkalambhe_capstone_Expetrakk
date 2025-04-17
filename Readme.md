@@ -56,3 +56,4 @@ Deployment:vercel (Frontend), Render/Cloudflare (Backend)
 - **Day 27**: Add error handling, JWT expiration checks  
 - **Day 28**: Final testing, polish UI, write README with setup instructions
 
+FRONTEND DEPLOYMENT LINK :https://spontaneous-cajeta-880f00.netlify.app/
