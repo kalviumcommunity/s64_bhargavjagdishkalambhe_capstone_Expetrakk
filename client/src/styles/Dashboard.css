@@ -1,0 +1,97 @@
+/* src/styles/Features.css */
+
+.home-main {
+  margin-top: 80px;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.features-page {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.features-hero {
+  background-color: #f8f8f8;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.features-hero h1 {
+  font-size: 2.2em;
+  margin-bottom: 10px;
+}
+
+.features-hero p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+.features-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.features-list {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.feature-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.feature-item:hover,
+.feature-item.active {
+  background-color: #e9ecef;
+}
+
+.feature-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.feature-details {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.feature-details h2 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.feature-details p {
+  font-size: 1.1em;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.feature-details img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.feature-details button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}

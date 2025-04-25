@@ -12,6 +12,7 @@ const Navbar = () => {
           <img src="/logo.png" alt="Expetrak" className="logoImage" />
           <span className="logoText">Expetrak</span>
         </Link>
+     
 
         <div className="navLinks">
           <Link to="/dashboard" className="navLink">Dashboard</Link>

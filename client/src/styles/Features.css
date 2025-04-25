@@ -1,0 +1,260 @@
+/* src/styles/Features.css */
+.features-page {
+  font-family: sans-serif; /* Or your preferred font */
+  line-height: 1.6;
+}
+
+/* General layout and structure */
+.features-page .features-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px; /* Reduced padding to just top/bottom */
+  background: #fff;
+}
+
+/* Hero section */
+.features-page .features-main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #222; /* Darken for readability */
+}
+
+.features-page .features-main .features-subhead {
+  text-align: center;
+  color: #666;
+  margin-bottom: 3rem;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+/* Features section: Sidebar + details */
+.features-page .features-section {
+  display: flex;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+/* Sidebar for feature list */
+.features-page .features-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 280px;
+}
+
+.features-page .sidebar-btn {
+  background: #f5f5f5;
+  border: none;
+  border-radius: 0.875rem;
+  padding: 1.375rem 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  outline: none;
+  font-size: 1rem;
+  margin-bottom: 0;
+  box-shadow: 0 0.0625rem 0.25rem rgba(44, 62, 80, 0.04);
+}
+
+.features-page .sidebar-btn.active {
+  background: #3d2fd4;
+  color: #fff;
+  font-weight: 600;
+}
+
+.features-page .sidebar-title {
+  font-weight: 700;
+  font-size: 1.13rem;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.features-page .sidebar-desc {
+  font-size: 1rem;
+  color: inherit;
+  opacity: 0.85;
+}
+
+/* Details for selected feature */
+.features-page .features-detail {
+  flex: 1;
+  background: #fafbfc;
+  border-radius: 1.25rem;
+  padding: 2.5rem 3rem;
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(44, 62, 80, 0.05);
+  justify-content: center;
+}
+
+.features-page .features-detail h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+}
+
+.features-page .features-detail p {
+  color: #444;
+  margin-bottom: 1rem;
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.features-page .feature-img {
+  width: 100%;
+  max-width: 32.5rem;
+  border-radius: 0.75rem;
+  margin-top: 0.625rem;
+  box-shadow: 0 0.125rem 0.75rem rgba(44, 62, 80, 0.08);
+}
+
+/* Extra features listed as cards */
+.features-page .features-cards-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.features-page .feature-card {
+  background: #f5f5f5;
+  border-radius: 0.875rem;
+  padding: 2rem 1.75rem;
+  min-width: 18.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.125rem;
+  box-shadow: 0 0.0625rem 0.375rem rgba(44, 62, 80, 0.05);
+  transition: box-shadow 0.2s;
+}
+
+.features-page .feature-card:hover {
+  box-shadow: 0 0.25rem 1rem rgba(44, 62, 80, 0.1);
+}
+
+.features-page .feature-icon {
+  font-size: 2.2rem;
+  margin-right: 0.75rem;
+  margin-top: 0.125rem;
+}
+
+.features-page .feature-card h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.features-page .feature-card p {
+  color: #555;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+/* CSS isolation prefix */
+.features-page .footer {
+  background: #f6f7f8;
+  padding: 3.75rem 0 0;
+  margin-top: 5rem;
+}
+
+/* Adjust spacing to have same amount*/
+.features-page .footer-grid {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding-bottom: 2.5rem;
+}
+
+.features-page .footer-grid h5 {
+  font-size: 1.13rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.features-page .footer-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.features-page .footer-grid li {
+  margin-bottom: 0.625rem;
+}
+
+.features-page .footer-grid a {
+  color: #444;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.2s;
+}
+
+.features-page .footer-grid a:hover {
+  color: #3d2fd4;
+}
+
+/* Media Queries */
+@media (max-width: 1100px) {
+  .features-page .features-main {
+    padding: 2rem 0.5rem;
+  }
+
+  .features-page .features-section {
+    gap: 1rem;
+  }
+
+  .features-page .features-detail {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .features-page .features-sidebar {
+    width: 100%;
+  }
+
+  .features-page .features-cards-row {
+    gap: 1rem;
+  }
+
+  .features-page .feature-card {
+    min-width: 13.75rem;
+    padding: 1.125rem 0.625rem;
+  }
+
+  .features-page .footer-grid {
+    gap: 1.875rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .features-page .features-section {
+    flex-direction: column;
+  }
+
+  .features-page .features-sidebar {
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .features-page .features-detail {
+    min-height: 13.75rem;
+  }
+
+  .features-page .features-cards-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .features-page .footer-grid {
+    flex-direction: column;
+    gap: 1.125rem;
+    align-items: center;
+  }
+}
