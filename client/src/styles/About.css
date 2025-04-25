@@ -1,0 +1,163 @@
+/* src/styles/About.css */
+.about-page {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f9f9f9;
+    padding-bottom: 60px;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .about-intro {
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .about-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .about-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .leadership-team {
+    margin-bottom: 40px;
+  }
+  
+  .leadership-team h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .team-members {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .team-member {
+    text-align: center;
+  }
+  
+  .team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+  }
+  
+  .team-member h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .our-values {
+    margin-bottom: 50px;
+  }
+  
+  .our-values h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .value-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .value-card h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .join-team {
+    background: #5f3dc4;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+    border-radius: 12px;
+  }
+  
+  .join-team h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .join-team p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .join-team .view-positions {
+    background: #fff;
+    color: #5f3dc4;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s;
+  }
+  
+  .join-team .view-positions:hover {
+    background-color: #f0f0f5;
+  }
+  
+  @media (max-width: 768px) {
+    .about-title {
+      font-size: 2.3rem;
+    }
+  
+    .about-intro {
+      font-size: 1.1rem;
+    }
+  
+    .team-members {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .values-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
