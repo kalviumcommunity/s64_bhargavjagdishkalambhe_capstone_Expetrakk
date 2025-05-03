@@ -19,17 +19,20 @@
   .hero-buttons {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 17px;
   }
   .hero-buttons .primary {
+    right:0;
     background: #5f3dc4;
     color: #fff;
     border: none;
     border-radius: 8px;
     padding: 12px 28px;
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
     cursor: pointer;
+    transition:background 0.4s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(95, 61, 196, 0.5);
   }
   .hero-buttons .secondary {
     background: #fff;

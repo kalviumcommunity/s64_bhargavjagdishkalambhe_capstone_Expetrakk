@@ -1,0 +1,49 @@
+.animated-bg {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #f8f9fa 0%, #fafbfc 100%);
+  }
+  
+  .bg-bubble {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.13;
+    pointer-events: none;
+    z-index: 0;
+    mix-blend-mode: lighten;
+    animation: float 18s infinite alternate;
+  }
+  
+  .bg-bubble1 {
+    width: 420px;
+    height: 420px;
+    left: -140px;
+    top: -120px;
+    background: radial-gradient(circle, #5f3dc4 0%, #fafbfc 100%);
+    animation-delay: 0s;
+  }
+  
+  .bg-bubble2 {
+    width: 300px;
+    height: 300px;
+    right: -100px;
+    top: 180px;
+    background: radial-gradient(circle, #22bb33 0%, #fafbfc 100%);
+    animation-delay: 2s;
+  }
+  
+  .bg-bubble3 {
+    width: 260px;
+    height: 260px;
+    left: 60vw;
+    bottom: -120px;
+    background: radial-gradient(circle, #3d2fd4 0%, #fafbfc 100%);
+    animation-delay: 6s;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0) scale(1);}
+    100% { transform: translateY(-30px) scale(1.07);}
+  }
+  

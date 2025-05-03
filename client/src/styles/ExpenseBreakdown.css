@@ -1,0 +1,212 @@
+.expense-breakdown-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .expense-breakdown-modal {
+    background-color: #fff;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.15);
+    animation: slideIn 0.3s ease;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .expense-breakdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    border-bottom: 1px solid #ececec;
+  }
+  
+  .expense-breakdown-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+  }
+  
+  .close-btn {
+    background: #5f3dc4;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .close-btn:hover {
+    background: #4824b2;
+  }
+  
+  .expense-breakdown-tabs {
+    display: flex;
+    padding: 0 32px;
+    margin-top: 24px;
+    border-bottom: 1px solid #ececec;
+  }
+  
+  .tab-btn {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #888;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+  }
+  
+  .tab-btn.active {
+    color: #5f3dc4;
+  }
+  
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #5f3dc4;
+  }
+  
+  .expense-breakdown-content {
+    padding: 32px;
+  }
+  
+  .chart-container {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+  
+  .expense-summary {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  
+  .summary-card {
+    background: #f5f5f5;
+    border-radius: 14px;
+    padding: 20px 24px;
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .summary-card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    margin: 0 0 12px 0;
+  }
+  
+  .summary-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .summary-category {
+    font-size: 1.1rem;
+    margin: 0 0 8px 0;
+    color: #555;
+  }
+  
+  .negative {
+    color: #ee4444;
+  }
+  
+  .expense-table {
+    background: #f7f9fa;
+    border-radius: 14px;
+    padding: 24px;
+  }
+  
+  .expense-table h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 16px 0;
+  }
+  
+  .expense-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .expense-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #555;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .expense-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .expense-table td.amount {
+    font-weight: 600;
+  }
+  
+  .loading, .no-data {
+    text-align: center;
+    padding: 60px 0;
+    color: #888;
+    font-size: 1.1rem;
+  }
+  
+  @media (max-width: 768px) {
+    .expense-breakdown-modal {
+      width: 95%;
+      max-height: 95vh;
+    }
+    
+    .expense-breakdown-header {
+      padding: 20px;
+    }
+    
+    .expense-breakdown-tabs {
+      padding: 0 20px;
+    }
+    
+    .expense-breakdown-content {
+      padding: 20px;
+    }
+    
+    .chart-container {
+      height: 300px;
+    }
+  }
+  

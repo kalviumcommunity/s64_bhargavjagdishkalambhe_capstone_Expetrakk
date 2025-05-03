@@ -1,53 +1,67 @@
-// src/App.jsx
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
 import Features from './pages/Features';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 import About from './pages/About';
+import ExportReport from './pages/ExportReport';
+import AuthFlip from './pages/AuthFlip';
+import ProtectedRoute from './components/ProtectedRoute'; // Import ProtectedRoute
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check local storage or session storage for authentication token
-    const token = localStorage.getItem('token'); // Or sessionStorage.getItem('token')
-    if (token) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token);
   }, []);
 
   return (
-    <Router>
-      <Navbar isLoggedIn={isLoggedIn} />
-      <div>
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<Home />} />
-          <Route path="/features" element={<Features />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
+    <GoogleOAuthProvider clientId="703046728633-p138slvut5hsbuq9l05vsfoga1l9kt7a.apps.googleusercontent.com">
+      <Router>
+        <Navbar isLoggedIn={isLoggedIn} />
+        <div>
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Home />} />
+            <Route path="/auth" element={<AuthFlip />} />
+            <Route path="/about" element={<About />} />
 
-          {/* Protected Route */}
-          <Route
-            path="/dashboard"
-            element={
-              isLoggedIn ? (
-                <Dashboard />
-              ) : (
-                <Navigate to="/login" replace />
-              )
-            }
-          />
-        </Routes>
-      </div>
-    </Router>
+            {/* Protected Routes */}
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/features"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <Features />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/export-report"
+              element={
+                <ProtectedRoute isLoggedIn={isLoggedIn}>
+                  <ExportReport />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* Redirect old login/signup URLs to /auth */}
+            <Route path="/login" element={<Navigate to="/auth" replace />} />
+            <Route path="/signup" element={<Navigate to="/auth" replace />} />
+          </Routes>
+        </div>
+      </Router>
+    </GoogleOAuthProvider>
   );
 }
 

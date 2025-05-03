@@ -1,6 +1,5 @@
 // src/pages/Features.jsx
 import React, { useState } from 'react';
-import Navbar from '../components/Navbar';
 import '../styles/Features.css';
 
 const sidebarFeatures = [
@@ -11,7 +10,7 @@ const sidebarFeatures = [
     detail: {
       heading: 'Expense Tracking',
       text: 'Track every penny with our intuitive expense tracking system. Categorize, tag, and monitor your spending in real-time.',
-      img: '/expetrak-feature-expense.jpg', // Replace with your image path
+      img: '/expetrakk.gif', // Replace with your image path
     },
   },
   {
@@ -21,7 +20,7 @@ const sidebarFeatures = [
     detail: {
       heading: 'Smart Analytics',
       text: 'Unlock powerful analytics to understand your spending and saving habits, helping you make smarter financial decisions.',
-      img : '/expetrak-feature-analytics.jpg',
+      img : '/smartanalysis.gif',
     },
   },
   {
@@ -31,7 +30,7 @@ const sidebarFeatures = [
     detail: {
       heading: 'Intelligent Budgeting',
       text: 'Set personalized budgets and track your progress to reach your financial targets efficiently.',
-      img: '/expetrak-feature-budgeting.jpg',
+      img: '/IntelligentBudgeting.gif',
     },
   },
 ];
