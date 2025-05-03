@@ -1,79 +1,101 @@
 // src/pages/Dashboard.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Dashboard.css';
+import ExpenseBreakdown from './ExpenseBreakdown'; 
+// Corrected import path
 
+const transactions = [
+  { label: "Monthly Salary", date: "Jan 15", amount: "+$5000.00", positive: true, icon: "💰" },
+  { label: "Rent Payment", date: "Jan 14", amount: "-$1500.00", positive: false, icon: "🏠" },
+  { label: "Grocery Shopping", date: "Jan 13", amount: "-$200.00", positive: false, icon: "🛒" },
+  { label: "Freelance Work", date: "Jan 12", amount: "+$800.00", positive: true, icon: "💼" },
+];
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const [showExpenseBreakdown, setShowExpenseBreakdown] = useState(false);
+
+  const handleGenerateReport = () => {
+    navigate('/export-report');
+  };
+
   return (
-    <main className="dashboard-main"> 
-    <div className='dashProp'>
-      <h1 className="dashboard-title">Dashboard Overview</h1>
-      <p className="dashboard-subtitle">Your financial summary and recent activity</p>
-      
-      <div className="dashboard-cards">
-        <div className="dashboard-card">
-          <span className="card-label">Balance</span>
-          <span className="card-value">$12,500.00</span>
-          <span className="card-growth positive">+4.2%</span>
+    <div className="dashboard-page">
+      <div className="dashboard-card">
+        {/* Header */}
+        <div className="dashboard-header">
+          <div className="dashboard-logo">
+            <span role="img" aria-label="logo">📊</span> Expetrak
+          </div>
+          <div className="dashboard-actions">
+            <button className="icon-btn" title="User Profile">
+              <span role="img" aria-label="user">👤</span>
+            </button>
+            <button className="icon-btn" title="Settings">
+              <span role="img" aria-label="settings">💼</span>
+            </button>
+            <button className="generate-btn" onClick={handleGenerateReport}>
+              Generate Report
+            </button>
+          </div>
         </div>
-        <div className="dashboard-card">
-          <span className="card-label">Income (This Month)</span>
-          <span className="card-value">$4,000.00</span>
-          <span className="card-growth positive">+2.1%</span>
+
+        {/* Stats Row */}
+        <div className="dashboard-stats-row">
+          <div className="dashboard-stat">
+            <div className="stat-label">Total Balance</div>
+            <div className="stat-value">$4,100.00</div>
+          </div>
+          <div className="dashboard-stat">
+            <div className="stat-label">Income</div>
+            <div className="stat-value positive">$5,800.00</div>
+          </div>
+          <div className="dashboard-stat">
+            <div className="stat-label">Expenses</div>
+            <div className="stat-value negative">$1,700.00</div>
+          </div>
         </div>
-        <div className="dashboard-card">
-          <span className="card-label">Expenses (This Month)</span>
-          <span className="card-value">$2,350.00</span>
-          <span className="card-growth negative">-1.3%</span>
+
+        {/* Expense Breakdown */}
+        <h2 className="dashboard-section-title">Expense Breakdown</h2>
+        <div
+          className="dashboard-breakdown-row"
+          role="button"
+          tabIndex={0}
+          aria-label="View Expense Breakdown"
+          onClick={() => setShowExpenseBreakdown(true)} // Show ExpenseBreakdown on click
+        >
+          <span role="img" aria-label="chart">📊</span>
+          <span className="dashboard-breakdown-link">View Expense Breakdown</span>
         </div>
-        <div className="dashboard-card">
-          <span className="card-label">Investments</span>
-          <span className="card-value">$8,200.00</span>
-          <span className="card-growth positive">+0.7%</span>
+
+        {/* Recent Transactions */}
+        <h3 className="dashboard-section-title">Recent Transactions</h3>
+        <div className="dashboard-transactions">
+          <button className="add-transaction-btn">Add Transaction</button>
+          <ul>
+            {transactions.map(({ label, date, amount, positive, icon }, idx) => (
+              <li key={idx} className="transaction-row">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span style={{ fontSize: '1.5rem' }} role="img" aria-label={label}>{icon}</span>
+                  <div>
+                    <div className="transaction-label">{label}</div>
+                    <div className="transaction-date">{date}</div>
+                  </div>
+                </div>
+                <div className={`transaction-amount ${positive ? 'positive' : 'negative'}`}>{amount}</div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
-      <div className="dashboard-section">
-        <h2 className="section-title">Recent Transactions</h2>
-        <table className="transactions-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Apr 18, 2025</td>
-              <td>Starbucks</td>
-              <td>Coffee</td>
-              <td className="negative">- $5.20</td>
-            </tr>
-            <tr>
-              <td>Apr 17, 2025</td>
-              <td>Salary</td>
-              <td>Income</td>
-              <td className="positive">+ $2,000.00</td>
-            </tr>
-            <tr>
-              <td>Apr 16, 2025</td>
-              <td>Amazon</td>
-              <td>Shopping</td>
-              <td className="negative">- $120.00</td>
-            </tr>
-            <tr>
-              <td>Apr 15, 2025</td>
-              <td>Dividends</td>
-              <td>Investments</td>
-              <td className="positive">+ $40.00</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      </div>
-    </main> 
+      {/* Render ExpenseBreakdown if showExpenseBreakdown is true */}
+      {showExpenseBreakdown && (
+        <ExpenseBreakdown onClose={() => setShowExpenseBreakdown(false)} />
+      )}
+    </div>
   );
 };
 

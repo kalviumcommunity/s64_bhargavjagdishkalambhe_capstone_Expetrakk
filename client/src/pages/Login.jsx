@@ -1,4 +1,7 @@
+// src/pages/Login.jsx
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import '../styles/Login.css';
 
@@ -7,8 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
-  // Simple validation
   const validate = () => {
     const newErrors = {};
     if (!email) newErrors.email = 'Email is required';
@@ -27,18 +30,27 @@ const Login = () => {
       return;
     }
     setErrors({});
-
     try {
-      // Send login details to the backend
       const response = await axios.post('http://localhost:5001/api/users/login', { email, password });
-
-      // Save the token in localStorage
       localStorage.setItem('token', response.data.token);
-
       setMessage('Login successful!');
-      // Redirect or set auth state here
+      navigate('/dashboard');
     } catch (error) {
       setMessage(error.response?.data?.message || 'Invalid email or password.');
+    }
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const response = await axios.post('http://localhost:5001/api/auth/google', {
+        credential: credentialResponse.credential,
+      });
+      localStorage.setItem('token', response.data.token);
+      setMessage('Google login successful!');
+      navigate('/dashboard');
+        } catch (error) {
+      setMessage(error.response?.data?.message || 'Google login failed. Try again.');
+      setMessage('Google login failed. Try again.');
     }
   };
 
@@ -46,7 +58,9 @@ const Login = () => {
     <div className="login-page">
       <div className="login-card">
         <h2 className="login-title">Login to Expetrak</h2>
-        {message && <div className={`login-message ${message === 'Login successful!' ? 'success' : 'error'}`}>{message}</div>}
+        {message && (
+          <div className={`login-message ${message === 'Login successful!' ? 'success' : 'error'}`}>{message}</div>
+        )}
         <form onSubmit={handleSubmit} className="login-form">
           <div className="form-group">
             <label>Email</label>
@@ -72,6 +86,14 @@ const Login = () => {
           </div>
           <button type="submit" className="login-btn">Login</button>
         </form>
+        <div className="or-divider"><span>or</span></div>
+        <GoogleLogin
+          onSuccess={handleGoogleSuccess}
+          onError={() => setMessage('Google login failed. Try again.')}
+          theme="filled_blue"
+          size="large"
+          width="100%"
+        />
       </div>
     </div>
   );

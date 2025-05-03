@@ -1,97 +1,238 @@
-/* src/styles/Features.css */
-
-.home-main {
-  margin-top: 80px;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-}
-
-.features-page {
-  font-family: 'Arial', sans-serif;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
-}
-
-.features-hero {
-  background-color: #f8f8f8;
-  padding: 30px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.features-hero h1 {
-  font-size: 2.2em;
-  margin-bottom: 10px;
-}
-
-.features-hero p {
-  font-size: 1.1em;
-  color: #666;
-}
-
-.features-container {
+/* Container & Layout */
+.dashboard-page {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 40px 20px; /* Added horizontal padding for smaller screens */
   display: flex;
-  gap: 20px;
-  padding: 20px;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.features-list {
-  width: 300px;
+.dashboard-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+  padding: 32px 40px 24px 40px; /* Slightly more horizontal padding */
+  width: 800px;
+  max-width: 98vw;
+  position: relative;
+/* Added background size for better aesthetics */
+}
+
+/* Header */
+.dashboard-header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px; /* Slightly more margin */
+}
+
+.dashboard-logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
   gap: 10px;
+  color: #222;
 }
 
-.feature-item {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.dashboard-actions {
+  display: flex;
+  gap: 12px;
 }
 
-.feature-item:hover,
-.feature-item.active {
-  background-color: #e9ecef;
-}
-
-.feature-item h3 {
-  font-size: 1.3em;
-  margin-bottom: 10px;
-}
-
-.feature-details {
-  flex: 1;
-  background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.feature-details h2 {
-  font-size: 1.8em;
-  margin-bottom: 15px;
-}
-
-.feature-details p {
-  font-size: 1.1em;
-  color: #666;
-  margin-bottom: 20px;
-}
-
-.feature-details img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.feature-details button {
-  background-color: #007bff;
-  color: white;
+.icon-btn {
+  background: #f5f5f5;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 10px; /* Slightly more rounded */
+  padding: 10px 14px;
+  font-size: 1.2rem;
   cursor: pointer;
-  font-size: 1em;
+  transition: background 0.3s ease;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.1);
+}
+.icon-btn:hover {
+  background: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.15);
+}
+
+.generate-btn {
+  background: #5f3dc4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-left: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(95, 61, 196, 0.5);
+}
+.generate-btn:hover {
+  background: #4824b2;
+  box-shadow: 0 6px 20px rgba(72, 36, 178, 0.6);
+}
+
+/* Stats Row */
+.dashboard-stats-row {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-stat {
+  background: #fff;
+  border: 1.5px solid #ececec;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  padding: 28px 36px;
+  min-width: 180px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+  flex: 1 1 180px;
+}
+
+.stat-label {
+  color: #888;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+  display: block;
+  font-weight: 600;
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #222;
+  line-height: 1.2;
+}
+.stat-value.positive {
+  color: #22bb33;
+}
+.stat-value.negative {
+  color: #ee4444;
+}
+
+/* Section Titles */
+.dashboard-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 24px 0 16px 0;
+  color: #222;
+}
+
+/* Expense Breakdown */
+.dashboard-breakdown-row {
+  background: #f5f5f5;
+  border-radius: 14px;
+  padding: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  font-weight: 600;
+  color: #3d2fd4;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(61, 47, 212, 0.15);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.dashboard-breakdown-row:hover {
+  background-color: #e5dbff;
+  box-shadow: 0 6px 20px rgba(61, 47, 212, 0.3);
+}
+
+/* Transactions */
+.dashboard-transactions {
+  margin-top: 10px;
+  position: relative;
+}
+
+/* Perfectly placed Add Transaction button */
+.add-transaction-btn {
+  position: absolute;
+  right: 0;
+  top: -55px; /* Slightly higher for better spacing */
+  background: #5f3dc4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(95, 61, 196, 0.6);
+  z-index: 10;
+}
+.add-transaction-btn:hover {
+  background: #4824b2;
+  box-shadow: 0 8px 24px rgba(72, 36, 178, 0.7);
+}
+
+.dashboard-transactions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-row {
+  background: #f5f5f5;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.06);
+  transition: background-color 0.2s ease;
+}
+.transaction-row:hover {
+  background-color: #eaeaea;
+}
+
+.transaction-label {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.transaction-date {
+  color: #888;
+  font-size: 1rem;
+}
+
+.transaction-amount {
+  font-size: 1.2rem;
+  font-weight: 700;
+  min-width: 110px;
+  text-align: right;
+}
+.transaction-amount.positive {
+  color: #22bb33;
+}
+.transaction-amount.negative {
+  color: #ee4444;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dashboard-card {
+    padding: 24px 20px 24px 20px;
+    width: 100vw;
+    border-radius: 16px;
+  }
+  .dashboard-stats-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .add-transaction-btn {
+    top: -50px;
+    right: 20px;
+  }
 }
